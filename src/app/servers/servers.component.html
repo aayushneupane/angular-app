@@ -1,17 +1,25 @@
 
 <label>Server Name</label>
-<input
-  type="text"
-  class="form-control"
-  (input)="onUpdateServerName($event)"> <!-- one way data binding -->
+<!--<input-->
+  <!--type="text"-->
+  <!--class="form-control"-->
+  <!--(input)="onUpdateServerName($event)"> &lt;!&ndash; one way data binding &ndash;&gt;-->
 
 <input
   type="text"
   class="form-control"
-  [(ngModel)] = "serverName"> <!-- two way data binding -->
+  [(ngModel)] = "serverName"
+  required = "true"> <!-- two way data binding -->
 
-<p>{{serverName}}</p>
 <button class="btn btn-primary"[disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 <p>{{ serverCreationStatus }}</p>
 <app-server></app-server>
 <app-server></app-server>
+
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="userName"
+>
+<p>{{userName}} </p>
+<button class="btn btn-default" [disabled]="userName.length == 0" (click)="userName = ''">Reset</button>
